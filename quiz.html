@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KBC Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f2027;  
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 15px;
+      width: 50%;
+      margin: auto;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+    }
+    button {
+      background: #f39c12;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #e67e22;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to KBC Quiz 🎉</h1>
+    <h2>{{ question }}</h2>
+
+    <form method="post">
+      {% for option in options %}
+        <div>
+          <input type="radio" name="answer" value="{{ loop.index }}" required>
+          <label>{{ option }}</label>
+        </div>
+      {% endfor %}
+      <br>
+      <button type="submit">Submit Answer</button>
+    </form>
+
+    <h3 style="color: yellow;">{{ message }}</h3>
+    <h3>Total Prize: ₹{{ total }}</h3>
+  </div>
+</body>
+</html>
